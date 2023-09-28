@@ -9,6 +9,20 @@ from spend.models import SpendStatistic
 SPEND_URL = reverse("spend:spend-statistics")
 
 
+class SpendModelsTest(TestCase):
+
+    def test_spend_statistic_str(self) -> None:
+        spend_statistic = SpendStatistic.objects.create(
+            name="Test Name 1",
+            date="2023-09-27",
+            spend=100,
+            impressions=500,
+            clicks=50,
+            conversion=5,
+        )
+        self.assertEqual(str(spend_statistic), spend_statistic.name)
+
+
 class SpendStatisticViewTestCase(TestCase):
     def setUp(self):
         SpendStatistic.objects.create(

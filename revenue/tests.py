@@ -10,6 +10,17 @@ from spend.models import SpendStatistic
 REVENUE_URL = reverse("revenue:revenue-statistics")
 
 
+class RevenueModelsTest(TestCase):
+
+    def test_spend_statistic_str(self) -> None:
+        revenue_statistic = RevenueStatistic.objects.create(
+            name="Test Name 1",
+            date="2023-09-27",
+            revenue=200,
+        )
+        self.assertEqual(str(revenue_statistic), revenue_statistic.name)
+
+
 class RevenueStatisticViewTestCase(TestCase):
     def setUp(self):
         spend_statistic = SpendStatistic.objects.create(
