@@ -42,7 +42,8 @@ Docker should be installed
 
 ### How to create superuser
 - Run `docker-compose up` command, and check with `docker ps`, that 2 services are up and running;
-- Create new admin user. Enter container `docker exec -it <container_name> bash`, and create in from there;
+- Create new admin user. Enter container `docker exec -it <container_name> bash`, 
+- and create in from there running command `python manage.py createsuperuser`;
 
 
 ### What do APIs do
